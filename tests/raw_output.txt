@@ -1,0 +1,52 @@
+docker run --rm instanceof_test
+==============================
+CASE: certificate_object
+d type/value: Certificate / \Certificate::__set_state(array(
+))
+Expression 1: !($d instanceof Certificate) => false
+Expression 2: !$d instanceof Certificate => false
+Sanity check: !$d => false
+Sanity check: ($(!$d)) instanceof Certificate => false
+if1 branch: NOT executed
+if2 branch: NOT executed
+
+==============================
+CASE: stdClass_object
+d type/value: stdClass / (object) array(
+)
+Expression 1: !($d instanceof Certificate) => true
+Expression 2: !$d instanceof Certificate => true
+Sanity check: !$d => false
+Sanity check: ($(!$d)) instanceof Certificate => false
+if1 branch: executed
+if2 branch: executed
+
+==============================
+CASE: null
+d type/value: NULL / NULL
+Expression 1: !($d instanceof Certificate) => true
+Expression 2: !$d instanceof Certificate => true
+Sanity check: !$d => true
+Sanity check: ($(!$d)) instanceof Certificate => false
+if1 branch: executed
+if2 branch: executed
+
+==============================
+CASE: false_boolean
+d type/value: boolean / false
+Expression 1: !($d instanceof Certificate) => true
+Expression 2: !$d instanceof Certificate => true
+Sanity check: !$d => true
+Sanity check: ($(!$d)) instanceof Certificate => false
+if1 branch: executed
+if2 branch: executed
+
+==============================
+CASE: integer_0
+d type/value: integer / 0
+Expression 1: !($d instanceof Certificate) => true
+Expression 2: !$d instanceof Certificate => true
+Sanity check: !$d => true
+Sanity check: ($(!$d)) instanceof Certificate => false
+if1 branch: executed
+if2 branch: executed
